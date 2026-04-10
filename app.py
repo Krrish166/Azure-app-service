@@ -1,20 +1,21 @@
 from flask import Flask, render_template_string, request
 import mysql.connector
+import os
 
 app = Flask(__name__)
 
-# DB connection
+# DB connection using environment variables
 conn = mysql.connector.connect(
-    host="<your-server>.mysql.database.azure.com",
-    user="mysqladmin",
-    password="<your-password>",
-    database="myappdb"
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASS"),
+    database=os.getenv("DB_NAME")
 )
 
 html = """
 <h2>Enter Name</h2>
 <form method="POST">
-    <input type="text" name="username">
+    <input type="text" name="username" required>
     <button type="submit">Save</button>
 </form>
 
