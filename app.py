@@ -6,26 +6,32 @@ html_page = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Azure Python App</title>
+    <title>Azure Pro App</title>
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        body {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
         }
 
-        .container {
-            background: rgba(0,0,0,0.3);
+        .card {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.1);
             padding: 40px;
-            border-radius: 15px;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            width: 350px;
+            color: white;
+            width: 380px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
         }
 
         h1 {
@@ -33,24 +39,27 @@ html_page = """
         }
 
         p {
-            font-size: 14px;
             margin-bottom: 20px;
+            font-size: 14px;
+            opacity: 0.8;
         }
 
         input {
-            width: 80%;
-            padding: 10px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
             border: none;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             outline: none;
+            font-size: 14px;
         }
 
         button {
-            padding: 10px 20px;
+            width: 100%;
+            padding: 12px;
             border: none;
-            border-radius: 8px;
-            background: #ff7eb3;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #ff6a00, #ee0979);
             color: white;
             font-weight: bold;
             cursor: pointer;
@@ -58,7 +67,7 @@ html_page = """
         }
 
         button:hover {
-            background: #ff4f9a;
+            transform: scale(1.05);
         }
 
         .result {
@@ -70,19 +79,18 @@ html_page = """
 </head>
 <body>
 
-<div class="container">
-    <h1>🚀 Azure App</h1>
-    <p>Enter your name</p>
+<div class="card">
+    <h1>🚀 Azure Pro App</h1>
+    <p>Enter your name to continue</p>
 
     <form method="POST">
         <input type="text" name="username" placeholder="Your name..." required>
-        <br>
-        <button type="submit">Submit</button>
+        <button type="submit">Continue</button>
     </form>
 
     {% if name %}
         <div class="result">
-            Hello, {{name}} 👋
+            Welcome, {{name}} 👋
         </div>
     {% endif %}
 </div>
