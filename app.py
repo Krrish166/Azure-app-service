@@ -34,7 +34,7 @@ def home():
         cursor.execute("INSERT INTO users (name) VALUES (%s)", (name,))
         conn.commit()
 
-        msg = "Saved successfully!"
+        msg = "Saved successfuly!"
 
     return render_template_string(html, msg=msg)
 
